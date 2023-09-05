@@ -1,0 +1,85 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-10 col-sm-10 mx-auto mt-3">
+            <form>
+                <mat-form-field class="form-width">
+                    <mat-label>First Name</mat-label>
+                    <input matInput [formControl]="first">
+                    <mat-error *ngIf="first.hasError('required')">
+                        Required Field!
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="form-width">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput [formControl]="last">
+                    <mat-error *ngIf="last.hasError('required')">
+                        Required Field!
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="form-width">
+                    <mat-label>Date of Birth</mat-label>
+                    <input matInput [matDatepicker]="picker" [formControl]="Date">
+                    <mat-error *ngIf="Date.hasError('required')">
+                        Required Field!
+                    </mat-error>
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field class="form-width">
+                    <mat-label>Gender</mat-label>
+                    <mat-select [formControl]="Gender">
+                        
+                        <mat-option value="one">Male</mat-option>
+                        <mat-option value="two">Female</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="Gender.hasError('required')">
+                        Required Field!
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="form-width">
+                    <mat-label>Mobile No</mat-label>
+                    <input matInput [formControl]="Mobile">
+                    <mat-error *ngIf="Mobile.hasError('required')">
+                        Required Field!
+                    </mat-error>
+                    <mat-error *ngIf="Mobile.hasError('pattern') && !Mobile.hasError('required')">
+                        Enter number!
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="form-width">
+                    <mat-label>Email</mat-label>
+                    <input matInput [formControl]="email">
+                    <mat-error *ngIf="email.hasError('required')">
+                        Required Field!
+                    </mat-error>
+                    <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+                        Enter valid email
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="form-width">
+                    <mat-label>Job Role</mat-label>
+                    <mat-select [formControl]="Role">
+                        
+                        <mat-option value="one">Java Developer</mat-option>
+                        <mat-option value="two">Web Developer</mat-option>
+                        <mat-option value="two">DevOps Engineer</mat-option>
+                        <mat-option value="two">Data Analyst</mat-option>
+                        <mat-option value="two">Python Developer</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="Role.hasError('required')">
+                        Required Field!
+                    </mat-error>
+                </mat-form-field>
+
+                <button type="submit" class="btn btn-primary">Apply</button>
+            </form>
+        </div>
+    </div>
+</div>
